@@ -30,7 +30,7 @@ function Navbar() {
 					{/* <NavBtnLink to='/sign-up'>Sign Up</NavBtnLink> */}
 				</NavMenu>
 				<NavBtn>
-					<NavBtnLink to="/signin">Sign In</NavBtnLink>
+					<NavBtnLink to="/">Button</NavBtnLink>
 				</NavBtn>
 			</Nav>
 		</>

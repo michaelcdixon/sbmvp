@@ -10,4 +10,4 @@ steps:
 
 # Deploy
 - name: gcr.io/sbmvp/firebase
-  args: ['deploy', '--project=sbmvp', '--only=hosting']
+  args: ['deploy', '--project=sb-mvp2', '--only=hosting']
