@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { UserAuth } from "../context/AuthContext";
+import { user, UserAuth } from "../context/AuthContext";
+import { db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 const Signin = () => {
 	const [email, setEmail] = useState("");
@@ -15,7 +17,16 @@ const Signin = () => {
 		setError("");
 		try {
 			await signIn(email, password);
+
 			navigate("/account");
+			await addDoc(collection(db, "users"), {
+				email: email,
+				fullName: "",
+				userId: user.uid,
+				userRole: "Buyer",
+			});
+
+			onclose();
 		} catch (e) {
 			setError(e.message);
 			console.log(e.message);
